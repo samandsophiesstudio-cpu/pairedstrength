@@ -1,192 +1,755 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Paired Strength | Couples Meal Prep System</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Paired Strength — Eat Well. Train Consistently. Do It Together.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-        body {
-            font-family: 'Montserrat', sans-serif;
-            background-color: #1a1a2e;
-            color: #ffffff;
-            line-height: 1.6;
-        }
+  :root {
+    --navy: #1A1A2E;
+    --navy-mid: #2E3250;
+    --navy-light: #3a3f6e;
+    --grey: #9090AA;
+    --white: #FFFFFF;
+    --cream: #F5F2EC;
+    --gold: #C9A84C;
+    --gold-light: #E8C96A;
+    --red: #C0392B;
+  }
 
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 40px 20px;
-        }
+  html { scroll-behavior: smooth; }
 
-        .hero {
-            text-align: center;
-            padding: 60px 0;
-        }
+  body {
+    background: var(--navy);
+    color: var(--white);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
 
-        .hero h1 {
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 20px;
-        }
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    padding: 20px 40px;
+    display: flex; justify-content: space-between; align-items: center;
+    background: rgba(26,26,46,0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+  .nav-logo {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 22px;
+    letter-spacing: 3px;
+    color: var(--white);
+    text-decoration: none;
+  }
+  .nav-logo span { color: var(--gold); }
+  .nav-cta {
+    background: var(--gold);
+    color: var(--navy);
+    padding: 10px 24px;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+    font-size: 13px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: background 0.2s;
+  }
+  .nav-cta:hover { background: var(--gold-light); }
 
-        .hero p {
-            font-size: 1.2rem;
-            color: #cccccc;
-            margin-bottom: 30px;
-        }
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    display: flex; flex-direction: column; justify-content: center;
+    padding: 120px 40px 80px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-bg {
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse 80% 60% at 70% 50%, rgba(46,50,80,0.6) 0%, transparent 70%),
+      radial-gradient(ellipse 40% 40% at 20% 80%, rgba(201,168,76,0.08) 0%, transparent 60%);
+  }
+  .hero-grid {
+    position: absolute; inset: 0; opacity: 0.04;
+    background-image: linear-gradient(rgba(255,255,255,0.5) 1px, transparent 1px),
+                      linear-gradient(90deg, rgba(255,255,255,0.5) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+  .hero-inner {
+    position: relative; z-index: 2;
+    max-width: 1100px; margin: 0 auto; width: 100%;
+  }
+  .hero-eyebrow {
+    font-size: 11px; letter-spacing: 4px; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 24px;
+    opacity: 0; animation: fadeUp 0.8s 0.1s forwards;
+  }
+  .hero-headline {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(64px, 10vw, 130px);
+    line-height: 0.92;
+    letter-spacing: 2px;
+    margin-bottom: 32px;
+    opacity: 0; animation: fadeUp 0.8s 0.25s forwards;
+  }
+  .hero-headline em {
+    font-family: 'DM Serif Display', serif;
+    font-style: italic;
+    color: var(--gold);
+  }
+  .hero-sub {
+    max-width: 520px;
+    font-size: 17px; font-weight: 300;
+    color: rgba(255,255,255,0.72);
+    line-height: 1.7;
+    margin-bottom: 48px;
+    opacity: 0; animation: fadeUp 0.8s 0.4s forwards;
+  }
+  .hero-sub strong { color: var(--white); font-weight: 500; }
+  .hero-actions {
+    display: flex; gap: 16px; flex-wrap: wrap;
+    opacity: 0; animation: fadeUp 0.8s 0.55s forwards;
+  }
+  .btn-primary {
+    background: var(--gold);
+    color: var(--navy);
+    padding: 16px 36px;
+    font-weight: 700; font-size: 14px;
+    letter-spacing: 1.5px; text-transform: uppercase;
+    text-decoration: none;
+    transition: all 0.2s;
+    display: inline-block;
+  }
+  .btn-primary:hover { background: var(--gold-light); transform: translateY(-1px); }
+  .btn-ghost {
+    border: 1px solid rgba(255,255,255,0.25);
+    color: var(--white);
+    padding: 16px 36px;
+    font-weight: 400; font-size: 14px;
+    letter-spacing: 1px; text-transform: uppercase;
+    text-decoration: none;
+    transition: all 0.2s;
+    display: inline-block;
+  }
+  .btn-ghost:hover { border-color: var(--white); }
 
-        .btn {
-            display: inline-block;
-            background-color: #4CAF50;
-            color: white;
-            padding: 15px 40px;
-            font-size: 1.1rem;
-            font-weight: 600;
-            text-decoration: none;
-            border-radius: 5px;
-        }
+  .hero-stat-row {
+    display: flex; gap: 48px; margin-top: 72px; flex-wrap: wrap;
+    opacity: 0; animation: fadeUp 0.8s 0.7s forwards;
+  }
+  .hero-stat { border-left: 2px solid var(--gold); padding-left: 16px; }
+  .hero-stat-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 36px; line-height: 1; color: var(--white);
+  }
+  .hero-stat-label { font-size: 12px; color: var(--grey); letter-spacing: 1px; text-transform: uppercase; }
 
-        .btn:hover {
-            background-color: #45a049;
-        }
-        .section {
-            padding: 50px 0;
-            border-top: 1px solid #2d2d44;
-        }
+  /* ── PROOF STRIP ── */
+  .proof-strip {
+    background: var(--navy-mid);
+    border-top: 1px solid rgba(255,255,255,0.06);
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    padding: 20px 40px;
+    text-align: center;
+    font-size: 13px;
+    color: var(--grey);
+    letter-spacing: 0.5px;
+  }
+  .proof-strip strong { color: var(--white); }
 
-        .section h2 {
-            font-size: 1.8rem;
-            margin-bottom: 20px;
-        }
+  /* ── SECTION SHARED ── */
+  .section { padding: 100px 40px; max-width: 1100px; margin: 0 auto; }
+  .section-label {
+    font-size: 11px; letter-spacing: 4px; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 16px;
+  }
+  .section-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(40px, 6vw, 72px);
+    line-height: 0.95;
+    margin-bottom: 24px;
+  }
+  .section-title em {
+    font-family: 'DM Serif Display', serif;
+    font-style: italic; color: var(--gold);
+  }
+  .section-body {
+    font-size: 16px; color: rgba(255,255,255,0.65);
+    max-width: 560px; line-height: 1.75;
+  }
 
-        .section p, .section li {
-            color: #cccccc;
-            margin-bottom: 10px;
-        }
+  /* ── PROBLEM SECTION ── */
+  .problem-section {
+    padding: 100px 40px;
+    background: rgba(255,255,255,0.02);
+    border-top: 1px solid rgba(255,255,255,0.05);
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+  }
+  .problem-inner { max-width: 1100px; margin: 0 auto; }
+  .problem-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 60px; align-items: center; margin-top: 60px;
+  }
+  .problem-list { list-style: none; }
+  .problem-list li {
+    padding: 20px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+    font-size: 16px; color: rgba(255,255,255,0.7);
+    display: flex; gap: 16px; align-items: flex-start;
+  }
+  .problem-list li:last-child { border-bottom: none; }
+  .problem-list li::before {
+    content: '×';
+    color: var(--red); font-size: 20px; font-weight: 700;
+    flex-shrink: 0; margin-top: -2px;
+  }
+  .solution-list { list-style: none; }
+  .solution-list li {
+    padding: 20px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+    font-size: 16px; color: rgba(255,255,255,0.7);
+    display: flex; gap: 16px; align-items: flex-start;
+  }
+  .solution-list li:last-child { border-bottom: none; }
+  .solution-list li::before {
+    content: '→';
+    color: var(--gold); font-size: 16px; font-weight: 700;
+    flex-shrink: 0; margin-top: 2px;
+  }
+  .problem-col-label {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 14px; letter-spacing: 3px; text-transform: uppercase;
+    color: var(--grey); margin-bottom: 8px;
+  }
 
-        .section ul {
-            list-style: none;
-            padding-left: 0;
-        }
+  /* ── PRODUCTS ── */
+  .products-section { padding: 100px 40px; }
+  .products-inner { max-width: 1100px; margin: 0 auto; }
+  .products-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 2px; margin-top: 60px;
+  }
+  .product-card {
+    background: var(--navy-mid);
+    padding: 48px 36px;
+    position: relative;
+    transition: transform 0.3s;
+    display: flex; flex-direction: column;
+  }
+  .product-card:hover { transform: translateY(-4px); z-index: 2; }
+  .product-card.featured {
+    background: var(--navy-light);
+    border-top: 3px solid var(--gold);
+  }
+  .product-tag {
+    font-size: 10px; letter-spacing: 3px; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 24px;
+  }
+  .product-name {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 32px; line-height: 1;
+    margin-bottom: 8px;
+  }
+  .product-sub {
+    font-size: 13px; color: var(--grey);
+    margin-bottom: 28px; min-height: 36px;
+  }
+  .product-price {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 52px; line-height: 1;
+    color: var(--gold); margin-bottom: 32px;
+  }
+  .product-price span { font-size: 20px; color: var(--grey); font-family: 'DM Sans', sans-serif; font-weight: 300; }
+  .product-features { list-style: none; margin-bottom: 36px; flex: 1; }
+  .product-features li {
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    font-size: 14px; color: rgba(255,255,255,0.65);
+    display: flex; gap: 10px;
+  }
+  .product-features li::before { content: '✓'; color: var(--gold); flex-shrink: 0; }
+  .product-features li:last-child { border-bottom: none; }
+  .product-btn {
+    display: block; text-align: center;
+    background: var(--gold); color: var(--navy);
+    padding: 14px; font-weight: 700;
+    font-size: 13px; letter-spacing: 1.5px; text-transform: uppercase;
+    text-decoration: none; transition: all 0.2s;
+    margin-top: auto;
+  }
+  .product-btn:hover { background: var(--gold-light); }
+  .product-btn.ghost {
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.2);
+    color: var(--white);
+  }
+  .product-btn.ghost:hover { border-color: var(--white); }
 
-        .section li {
-            padding-left: 25px;
-            position: relative;
-        }
+  /* ── BUNDLE ── */
+  .bundle-section {
+    padding: 0 40px 100px;
+  }
+  .bundle-inner { max-width: 1100px; margin: 0 auto; }
+  .bundle-card {
+    background: linear-gradient(135deg, var(--navy-mid) 0%, var(--navy-light) 100%);
+    border: 1px solid rgba(201,168,76,0.3);
+    padding: 64px;
+    display: grid; grid-template-columns: 1fr auto;
+    gap: 60px; align-items: center;
+    position: relative; overflow: hidden;
+  }
+  .bundle-card::before {
+    content: '';
+    position: absolute; top: -60px; right: -60px;
+    width: 200px; height: 200px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(201,168,76,0.12) 0%, transparent 70%);
+  }
+  .bundle-label {
+    font-size: 10px; letter-spacing: 4px; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 16px;
+  }
+  .bundle-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(36px, 5vw, 56px); line-height: 1;
+    margin-bottom: 16px;
+  }
+  .bundle-desc {
+    font-size: 16px; color: rgba(255,255,255,0.65);
+    max-width: 480px; line-height: 1.7; margin-bottom: 0;
+  }
+  .bundle-price-block { text-align: center; flex-shrink: 0; }
+  .bundle-was {
+    font-size: 14px; color: var(--grey);
+    text-decoration: line-through; margin-bottom: 4px;
+  }
+  .bundle-now {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 80px; line-height: 1; color: var(--gold);
+  }
+  .bundle-save {
+    font-size: 12px; color: var(--gold); letter-spacing: 1px;
+    text-transform: uppercase; margin-bottom: 24px;
+  }
+  .bundle-btn {
+    display: block; text-align: center;
+    background: var(--gold); color: var(--navy);
+    padding: 16px 40px; font-weight: 700;
+    font-size: 13px; letter-spacing: 1.5px; text-transform: uppercase;
+    text-decoration: none; transition: all 0.2s; white-space: nowrap;
+  }
+  .bundle-btn:hover { background: var(--gold-light); }
+  .bundle-coming {
+    font-size: 11px; color: var(--grey); margin-top: 10px;
+    text-align: center; letter-spacing: 1px;
+  }
 
-        .check li:before {
-            content: "✓";
-            position: absolute;
-            left: 0;
-            color: #4CAF50;
-        }
+  /* ── ABOUT ── */
+  .about-section {
+    padding: 100px 40px;
+    background: rgba(255,255,255,0.02);
+    border-top: 1px solid rgba(255,255,255,0.05);
+  }
+  .about-inner {
+    max-width: 1100px; margin: 0 auto;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;
+  }
+  .about-quote {
+    font-family: 'DM Serif Display', serif;
+    font-style: italic;
+    font-size: clamp(22px, 3vw, 32px);
+    line-height: 1.45;
+    color: rgba(255,255,255,0.9);
+    margin-bottom: 32px;
+  }
+  .about-quote strong { color: var(--gold); font-style: normal; }
+  .about-detail {
+    font-size: 15px; color: rgba(255,255,255,0.6);
+    line-height: 1.8; margin-bottom: 16px;
+  }
+  .about-names {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 20px; letter-spacing: 3px;
+    color: var(--gold); margin-top: 32px;
+  }
+  .about-visual {
+    aspect-ratio: 4/5;
+    background: var(--navy-mid);
+    border: 1px solid rgba(255,255,255,0.08);
+    display: flex; align-items: center; justify-content: center;
+    position: relative; overflow: hidden;
+  }
+  .about-visual-inner {
+    text-align: center; padding: 40px;
+  }
+  .about-visual-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 48px; color: var(--white); line-height: 1;
+    margin-bottom: 8px;
+  }
+  .about-visual-sub {
+    font-size: 13px; color: var(--grey); letter-spacing: 2px; text-transform: uppercase;
+  }
+  .about-badges {
+    display: flex; flex-direction: column; gap: 16px; margin-top: 32px;
+  }
+  .about-badge {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    padding: 14px 20px;
+    display: flex; gap: 14px; align-items: center;
+    font-size: 13px; color: rgba(255,255,255,0.65);
+  }
+  .about-badge-icon { color: var(--gold); font-size: 16px; flex-shrink: 0; }
 
-        .x li:before {
-            content: "✗";
-            position: absolute;
-            left: 0;
-            color: #ff6b6b;
-        }
+  /* ── GUARANTEE ── */
+  .guarantee-section {
+    padding: 80px 40px;
+    text-align: center;
+    border-top: 1px solid rgba(255,255,255,0.05);
+  }
+  .guarantee-inner { max-width: 600px; margin: 0 auto; }
+  .guarantee-icon {
+    font-size: 48px; margin-bottom: 24px; display: block;
+  }
+  .guarantee-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 36px; margin-bottom: 16px;
+  }
+  .guarantee-body {
+    font-size: 15px; color: rgba(255,255,255,0.6);
+    line-height: 1.75;
+  }
 
-        .formula {
-            background-color: #2d2d44;
-            padding: 20px;
-            border-radius: 10px;
-            text-align: center;
-            margin: 20px 0;
-            font-size: 1.3rem;
-            font-weight: 600;
-        }
+  /* ── FINAL CTA ── */
+  .final-cta {
+    padding: 120px 40px;
+    text-align: center;
+    background: var(--navy-mid);
+    border-top: 1px solid rgba(255,255,255,0.06);
+  }
+  .final-cta-inner { max-width: 700px; margin: 0 auto; }
+  .final-eyebrow {
+    font-size: 11px; letter-spacing: 4px; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 20px;
+  }
+  .final-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(48px, 8vw, 96px); line-height: 0.92;
+    margin-bottom: 28px;
+  }
+  .final-title em { font-family: 'DM Serif Display', serif; font-style: italic; color: var(--gold); }
+  .final-body {
+    font-size: 16px; color: rgba(255,255,255,0.6);
+    line-height: 1.75; margin-bottom: 48px;
+  }
+  .final-btns { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
 
-        .pricing {
-            text-align: center;
-        }
+  /* ── FOOTER ── */
+  footer {
+    padding: 40px;
+    background: var(--navy);
+    border-top: 1px solid rgba(255,255,255,0.06);
+    display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px;
+  }
+  .footer-logo {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 18px; letter-spacing: 3px; color: var(--white);
+  }
+  .footer-logo span { color: var(--gold); }
+  .footer-links { display: flex; gap: 24px; }
+  .footer-links a { font-size: 13px; color: var(--grey); text-decoration: none; letter-spacing: 0.5px; }
+  .footer-links a:hover { color: var(--white); }
+  .footer-copy { font-size: 12px; color: rgba(144,144,170,0.5); }
 
-        .price {
-            font-size: 3rem;
-            font-weight: 700;
-            margin: 20px 0;
-        }
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
 
-        .footer {
-            padding: 30px 0;
-            border-top: 1px solid #2d2d44;
-            text-align: center;
-            color: #cccccc;
-            font-size: 0.9rem;
-        }
+  .reveal {
+    opacity: 0; transform: translateY(32px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
 
-        .footer a {
-            color: #4CAF50;
-            text-decoration: none;
-        }
-    </style>
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    nav { padding: 16px 24px; }
+    .hero { padding: 100px 24px 60px; }
+    .problem-grid { grid-template-columns: 1fr; gap: 40px; }
+    .products-grid { grid-template-columns: 1fr; gap: 2px; }
+    .bundle-card { grid-template-columns: 1fr; gap: 40px; padding: 40px 28px; }
+    .bundle-price-block { text-align: left; }
+    .about-inner { grid-template-columns: 1fr; gap: 48px; }
+    .about-visual { display: none; }
+    .section { padding: 60px 24px; }
+    .products-section, .bundle-section, .about-section, .guarantee-section, .problem-section, .final-cta { padding-left: 24px; padding-right: 24px; }
+    footer { padding: 32px 24px; flex-direction: column; align-items: flex-start; }
+  }
+</style>
 </head>
 <body>
-    <div class="container">
 
-        <section class="hero">
-            <h1>Stop Arguing About Dinner.</h1>
-            <p>The Couples Meal Prep System — bulk buy, prep once, eat well all week. Built by a real couple with real jobs.</p>
-            <a href="https://pairedstrength.gumroad.com/l/mealprep" class="btn">Get Instant Access — $17</a>
-        </section>
-        <section class="section x">
-            <h2>Sound Familiar?</h2>
-            <ul>
-                <li>"What do you want for dinner?" (every. single. night.)</li>
-                <li>Wasting money on takeout because you're too tired to cook</li>
-                <li>Buying groceries that go bad before you use them</li>
-                <li>Spending your whole Sunday in the kitchen</li>
-                <li>One of you eats healthy, the other survives on frozen pizza</li>
-            </ul>
-        </section>
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">PAIRED<span>|</span>STRENGTH</a>
+  <a href="#products" class="nav-cta">See the Programs</a>
+</nav>
 
-        <section class="section">
-            <h2>Meal Prep That Actually Works for Couples</h2>
-            <p>The Paired Strength Meal Prep System is exactly how we eat — simple, affordable, and built for two busy people.</p>
-            <p>No fancy recipes. No expensive ingredients. No all-day Sunday cooking.</p>
-            <div class="formula">Protein + Carb + Veggie = Done.</div>
-        </section>
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-inner">
+    <p class="hero-eyebrow">Built by a real couple. For busy couples.</p>
+    <h1 class="hero-headline">
+      Eat well.<br>
+      Train <em>consistently.</em><br>
+      Do it together.
+    </h1>
+    <p class="hero-sub">
+      Two full-time jobs. Real training schedules. Stopped spending <strong>$300/month on takeout</strong> and figured out how to eat and train properly without it taking over your life.
+    </p>
+    <div class="hero-actions">
+      <a href="#products" class="btn-primary">Shop the Programs</a>
+      <a href="#about" class="btn-ghost">Our Story</a>
+    </div>
+    <div class="hero-stat-row">
+      <div class="hero-stat">
+        <div class="hero-stat-num">3</div>
+        <div class="hero-stat-label">Programs Available</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-num">8</div>
+        <div class="hero-stat-label">Weeks of Structure</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-num">$17</div>
+        <div class="hero-stat-label">Starting From</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-num">1hr</div>
+        <div class="hero-stat-label">Sunday Meal Prep</div>
+      </div>
+    </div>
+  </div>
+</section>
 
-        <section class="section check">
-            <h2>What You Get</h2>
-            <ul>
-                <li>The simple formula that eliminates dinner decisions</li>
-                <li>Two prep styles — Sunday batch or daily cook</li>
-                <li>Complete protein, carb, and veggie guides</li>
-                <li>12 real meal combos we actually eat</li>
-                <li>Printable grocery checklist</li>
-                <li>6 easy seasoning blends</li>
-                <li>Recommended tools with prices</li>
-                <li>Storage and reheating tips</li>
-            </ul>
-        </section>
-        <section class="section pricing">
-            <h2>Start Eating Better This Week</h2>
-            <div class="price">$17</div>
-            <p>Instant PDF Download</p>
-            <a href="https://pairedstrength.gumroad.com/l/mealprep" class="btn">Get the Meal Prep System</a>
-            <p style="margin-top: 20px; font-size: 0.9rem;">100% Money-Back Guarantee — If it doesn't work for you, email us for a full refund.</p>
-        </section>
+<!-- PROOF STRIP -->
+<div class="proof-strip">
+  <strong>Real products. Instant download. No subscription.</strong> &nbsp;·&nbsp; Used by busy couples across the US &nbsp;·&nbsp; Delivered via Gumroad
+</div>
 
-        <section class="section">
-            <h2>Who We Are</h2>
-            <p>We're Sam and Sophie — a couple who works full-time, hits the gym together, and doesn't want to spend every evening figuring out what to eat.</p>
-            <p>This guide is exactly how we eat. We built it for us, and now we're sharing it with you.</p>
-        </section>
+<!-- PROBLEM / SOLUTION -->
+<section class="problem-section">
+  <div class="problem-inner">
+    <div class="reveal">
+      <p class="section-label">Sound familiar?</p>
+      <h2 class="section-title">The <em>pattern</em> most couples are stuck in</h2>
+    </div>
+    <div class="problem-grid reveal">
+      <div>
+        <p class="problem-col-label">The cycle</p>
+        <ul class="problem-list">
+          <li>Too tired to cook Monday through Friday so you order in</li>
+          <li>$300+ a month on takeout that doesn't even hit right</li>
+          <li>Both of you want to train but have no real structure</li>
+          <li>Generic programs built for people with 2 hours a day</li>
+          <li>Meal prep guides that need 4 hours and 40 ingredients</li>
+          <li>Doing it alone because nothing is built for two</li>
+        </ul>
+      </div>
+      <div>
+        <p class="problem-col-label">The fix</p>
+        <ul class="solution-list">
+          <li>10 meals prepped in 60 minutes on Sunday. Done.</li>
+          <li>Cut the takeout spend and eat better every single week</li>
+          <li>8-week programs built around real working schedules</li>
+          <li>4 training days a week. 60-75 minutes. Nothing more.</li>
+          <li>3 ingredients. Mix and match. No recipes needed.</li>
+          <li>Programs built for couples from the ground up</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
 
-        <footer class="footer">
-            <p>Follow us <a href="https://twitter.com/PairedStrength" target="_blank">@PairedStrength</a></p>
-            <p style="margin-top: 10px;">© 2024 Paired Strength. All rights reserved.</p>
-        </footer>
+<!-- PRODUCTS -->
+<section class="products-section" id="products">
+  <div class="products-inner">
+    <div class="reveal">
+      <p class="section-label">The Programs</p>
+      <h2 class="section-title">Everything you need.<br><em>Nothing you don't.</em></h2>
+    </div>
+    <div class="products-grid reveal">
+
+      <!-- Meal Prep -->
+      <div class="product-card">
+        <p class="product-tag">Nutrition</p>
+        <h3 class="product-name">The Couples Meal Prep System</h3>
+        <p class="product-sub">Bulk buy once. Prep in an hour. Eat all week.</p>
+        <div class="product-price">$17 <span>one-time</span></div>
+        <ul class="product-features">
+          <li>Protein + Carb + Veggie system — no recipes needed</li>
+          <li>17-page guide with full grocery lists</li>
+          <li>12 meal combos you'll actually eat</li>
+          <li>6 seasoning blends for any protein</li>
+          <li>Storage, reheating and tools guide</li>
+          <li>Instant PDF download</li>
+        </ul>
+        <a href="https://pairedstrength.gumroad.com/l/mealprep" class="product-btn" target="_blank">Get the System — $17</a>
+      </div>
+
+      <!-- Sophie -->
+      <div class="product-card featured">
+        <p class="product-tag">Training — Sophie</p>
+        <h3 class="product-name">Sophie's 8-Week Glute & Pilates Program</h3>
+        <p class="product-sub">Build, sculpt and feel strong. Home or gym.</p>
+        <div class="product-price">$19 <span>one-time</span></div>
+        <ul class="product-features">
+          <li>8 weeks of progressive glute and pilates training</li>
+          <li>5 days a week — 45 to 60 minutes per session</li>
+          <li>Monday to Friday structure with rest and mobility built in</li>
+          <li>Program PDF + printable tracker + Excel/Sheets tracker</li>
+          <li>Home and gym versions included</li>
+          <li>Instant PDF download</li>
+        </ul>
+        <a href="https://pairedstrength.gumroad.com/l/sophies-program" class="product-btn" target="_blank">Get the Program — $19</a>
+      </div>
+
+      <!-- Sam -->
+      <div class="product-card">
+        <p class="product-tag">Training — Sam</p>
+        <h3 class="product-name">Sam's 8-Week Strength Program</h3>
+        <p class="product-sub">Progressive overload. Full range of motion. Real results.</p>
+        <div class="product-price">$19 <span>one-time</span></div>
+        <ul class="product-features">
+          <li>8 weeks of structured strength training</li>
+          <li>4 days a week — 60 to 75 minutes per session</li>
+          <li>Tempo-focused — slow eccentrics, full ROM every rep</li>
+          <li>Program PDF + printable tracker + Excel/Sheets tracker</li>
+          <li>Home swap exercises for every movement</li>
+          <li>Instant PDF download</li>
+        </ul>
+        <a href="https://pairedstrength.gumroad.com/l/sams-program" class="product-btn" target="_blank">Get the Program — $19</a>
+      </div>
 
     </div>
+  </div>
+</section>
+
+<!-- BUNDLE -->
+<section class="bundle-section">
+  <div class="bundle-inner reveal">
+    <div class="bundle-card">
+      <div>
+        <p class="bundle-label">Best Value — Coming Soon</p>
+        <h2 class="bundle-title">The Paired Strength Bundle</h2>
+        <p class="bundle-desc">All three programs together. The meal prep system, both 8-week training programs, and all trackers. Everything you need to eat well and train consistently as a couple.</p>
+      </div>
+      <div class="bundle-price-block">
+        <p class="bundle-was">Worth $55</p>
+        <div class="bundle-now">$42</div>
+        <p class="bundle-save">Save $13</p>
+        <a href="#" class="bundle-btn" style="opacity:0.5; pointer-events:none;">Coming Soon</a>
+        <p class="bundle-coming">Follow @PairedStrength to get notified</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about-section" id="about">
+  <div class="about-inner">
+    <div class="reveal">
+      <p class="section-label">Who built this</p>
+      <p class="about-quote">"We weren't looking to become fitness influencers. We just <strong>figured out what actually works</strong> when you both have jobs and a life."</p>
+      <p class="about-detail">Sam has been training consistently for 10 years — tempo-focused, full range of motion, no ego lifting. Sophie built her program around glutes and Pilates, training 5 days a week from home or the gym.</p>
+      <p class="about-detail">Between the two of us we stopped spending $300 a month on takeout, figured out how to prep 10 meals in an hour on Sundays, and built training schedules that actually fit around work.</p>
+      <p class="about-detail">That's what Paired Strength is. No guru energy. Just the system that works for us — built for couples who want the same.</p>
+      <p class="about-names">Sam & Sophie</p>
+    </div>
+    <div class="about-visual reveal">
+      <div class="about-visual-inner">
+        <div class="about-visual-title">PAIRED<br>STRENGTH</div>
+        <div class="about-visual-sub">@PairedStrength</div>
+        <div class="about-badges">
+          <div class="about-badge">
+            <span class="about-badge-icon">◆</span>
+            <span>10 years consistent training</span>
+          </div>
+          <div class="about-badge">
+            <span class="about-badge-icon">◆</span>
+            <span>Both working full time</span>
+          </div>
+          <div class="about-badge">
+            <span class="about-badge-icon">◆</span>
+            <span>Built for real life, not the ideal</span>
+          </div>
+          <div class="about-badge">
+            <span class="about-badge-icon">◆</span>
+            <span>No sponsorships. No agenda.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GUARANTEE -->
+<section class="guarantee-section reveal">
+  <div class="guarantee-inner">
+    <span class="guarantee-icon">◎</span>
+    <h3 class="guarantee-title">Simple. Honest. No nonsense.</h3>
+    <p class="guarantee-body">These are real programs that we actually use. Instant download, no subscription, no upsells. If you have a genuine issue with your purchase, reach out via Gumroad and we'll make it right.</p>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final-cta">
+  <div class="final-cta-inner reveal">
+    <p class="final-eyebrow">Start this week</p>
+    <h2 class="final-title">Pick up<br>a <em>program.</em></h2>
+    <p class="final-body">Stop figuring it out every Sunday. Get the system, run the program, eat well all week. Both programs come with full trackers so you know exactly where you are every session.</p>
+    <div class="final-btns">
+      <a href="https://pairedstrength.gumroad.com/l/mealprep" class="btn-primary" target="_blank">Meal Prep — $17</a>
+      <a href="https://pairedstrength.gumroad.com/l/sophies-program" class="btn-primary" target="_blank">Sophie's Program — $19</a>
+      <a href="https://pairedstrength.gumroad.com/l/sams-program" class="btn-primary" target="_blank">Sam's Program — $19</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">PAIRED<span>|</span>STRENGTH</div>
+  <div class="footer-links">
+    <a href="https://pairedstrength.gumroad.com" target="_blank">Gumroad Store</a>
+    <a href="https://x.com/PairedStrength" target="_blank">X / Twitter</a>
+  </div>
+  <p class="footer-copy">© 2026 Paired Strength</p>
+</footer>
+
+<script>
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }
+    });
+  }, { threshold: 0.1 });
+  reveals.forEach(el => observer.observe(el));
+</script>
+
 </body>
 </html>
