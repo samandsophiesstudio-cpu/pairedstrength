@@ -452,7 +452,48 @@ footer {
       <li>Protein, grain and veggie ratios per portion</li>
     </ul>
     <div class="kit-wrapper">
-      <script async data-uid="59ee974d9e" src="https://paired-strength.kit.com/59ee974d9e/index.js"></script>
+      <form action="https://app.kit.com/forms/9350161/subscriptions" method="post" id="cheat-sheet-form">
+        <input type="hidden" name="data-sv-form" value="9350161" />
+        <input type="hidden" name="data-uid" value="59ee974d9e" />
+        <div class="kit-field">
+          <input type="email" name="email_address" placeholder="Your email address" required aria-label="Email address" />
+        </div>
+        <button type="submit">Send me the cheat sheet</button>
+        <p class="kit-disclaimer">Free. No spam. Just the cheat sheet.</p>
+      </form>
+      <style>
+        #cheat-sheet-form { max-width: 420px; }
+        #cheat-sheet-form .kit-field { margin-bottom: 10px; }
+        #cheat-sheet-form input[type="email"] {
+          display: block; width: 100%;
+          background: rgba(255,255,255,0.06);
+          border: 1px solid rgba(255,255,255,0.2);
+          border-radius: 0;
+          color: #FFFFFF;
+          font-family: 'Barlow', sans-serif;
+          font-size: 16px;
+          padding: 14px 16px;
+          outline: none;
+          -webkit-appearance: none;
+        }
+        #cheat-sheet-form input[type="email"]::placeholder { color: rgba(255,255,255,0.4); }
+        #cheat-sheet-form input[type="email"]:focus { border-color: #B8962E; }
+        #cheat-sheet-form button {
+          display: block; width: 100%;
+          background: #B8962E; color: #1A1A2E;
+          font-family: 'Barlow Condensed', sans-serif;
+          font-weight: 700; font-size: 13px;
+          letter-spacing: 0.14em; text-transform: uppercase;
+          border: none; padding: 15px 28px;
+          cursor: pointer; margin-top: 10px;
+          transition: background 0.2s;
+        }
+        #cheat-sheet-form button:hover { background: #D4AF6A; }
+        #cheat-sheet-form .kit-disclaimer {
+          font-size: 12px; color: rgba(255,255,255,0.3);
+          margin-top: 10px; line-height: 1.5;
+        }
+      </style>
     </div>
   </div>
 
