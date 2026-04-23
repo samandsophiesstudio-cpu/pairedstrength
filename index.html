@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -11,334 +10,309 @@
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-```
-html { scroll-behavior: smooth; }
-
-body {
-  background: #1A1A2E;
-  color: #FFFFFF;
-  font-family: 'Barlow', sans-serif;
-  font-weight: 400;
-  line-height: 1.6;
-  -webkit-font-smoothing: antialiased;
-}
-
-/* NAV */
-nav {
-  position: sticky; top: 0; z-index: 100;
-  background: #1A1A2E;
-  border-bottom: 1px solid rgba(255,255,255,0.07);
-  display: flex; align-items: center; justify-content: space-between;
-  padding: 0 24px; height: 62px;
-}
-.logo {
-  font-family: 'Barlow Condensed', sans-serif;
-  font-weight: 800; font-size: 17px; letter-spacing: 0.14em;
-  color: #FFFFFF; text-decoration: none; text-transform: uppercase;
-}
-.logo span { color: #B8962E; margin: 0 4px; }
-.nav-cta {
-  background: #B8962E; color: #1A1A2E;
-  font-family: 'Barlow Condensed', sans-serif;
-  font-weight: 700; font-size: 12px; letter-spacing: 0.14em;
-  text-transform: uppercase; text-decoration: none;
-  padding: 10px 18px; display: inline-block; transition: background 0.2s;
-}
-.nav-cta:hover { background: #D4AF6A; }
-
-/* HERO */
-.hero { padding: 68px 24px 60px; }
-.eyebrow {
-  font-family: 'Barlow Condensed', sans-serif;
-  font-size: 11px; font-weight: 700; letter-spacing: 0.22em;
-  text-transform: uppercase; color: #D4AF6A; margin-bottom: 22px;
-}
-.hero-headline {
-  font-family: 'Barlow Condensed', sans-serif;
-  font-weight: 900; font-size: clamp(54px, 14vw, 84px);
-  line-height: 0.91; text-transform: uppercase;
-  color: #FFFFFF; margin-bottom: 30px;
-}
-.italic-gold {
-  font-family: 'Cormorant Garamond', serif;
-  font-style: italic; font-weight: 600;
-  color: #D4AF6A; text-transform: none;
-  font-size: 1.07em; line-height: 0.9; display: block;
-}
-.hero-body {
-  font-size: 16px; color: rgba(255,255,255,0.72);
-  line-height: 1.7; margin-bottom: 36px; max-width: 460px;
-}
-.hero-body strong { color: #FFFFFF; font-weight: 500; }
-.hero-ctas { display: flex; flex-direction: column; gap: 14px; align-items: flex-start; }
-.btn-gold {
-  background: #B8962E; color: #1A1A2E;
-  font-family: 'Barlow Condensed', sans-serif;
-  font-weight: 700; font-size: 13px; letter-spacing: 0.14em;
-  text-transform: uppercase; text-decoration: none;
-  padding: 15px 32px; display: inline-block; transition: background 0.2s;
-}
-.btn-gold:hover { background: #D4AF6A; }
-.btn-ghost {
-  color: rgba(255,255,255,0.45); font-size: 12px; letter-spacing: 0.1em;
-  text-decoration: none; text-transform: uppercase;
-  font-family: 'Barlow Condensed', sans-serif; font-weight: 700;
-  border-bottom: 1px solid rgba(255,255,255,0.18);
-  padding-bottom: 2px; transition: color 0.2s;
-}
-.btn-ghost:hover { color: #FFFFFF; }
-
-/* STATS */
-.stats {
-  border-top: 1px solid rgba(255,255,255,0.08);
-  border-bottom: 1px solid rgba(255,255,255,0.08);
-  display: grid; grid-template-columns: 1fr 1fr;
-}
-.stat { padding: 28px 24px; border-right: 1px solid rgba(255,255,255,0.08); }
-.stat:nth-child(even) { border-right: none; }
-.stat:nth-child(n+3) { border-top: 1px solid rgba(255,255,255,0.08); }
-.stat-row { display: flex; align-items: flex-start; gap: 12px; }
-.gold-bar { width: 3px; height: 34px; background: #B8962E; flex-shrink: 0; margin-top: 2px; }
-.stat-num { font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: 40px; line-height: 1; color: #FFFFFF; }
-.stat-label { font-family: 'Barlow Condensed', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: #9090AA; margin-top: 5px; }
-
-/* TRUST BAR */
-.trust-bar {
-  background: #20223A; padding: 14px 24px;
-  text-align: center; font-size: 13px; color: rgba(255,255,255,0.4); line-height: 1.8;
-}
-.trust-bar strong { color: rgba(255,255,255,0.72); font-weight: 500; }
-
-/* SECTIONS */
-section { padding: 72px 24px; }
-.section-label {
-  font-family: 'Barlow Condensed', sans-serif; font-size: 10px; font-weight: 700;
-  letter-spacing: 0.22em; text-transform: uppercase; color: #D4AF6A; margin-bottom: 18px;
-}
-.section-headline {
-  font-family: 'Barlow Condensed', sans-serif; font-weight: 900;
-  font-size: clamp(34px, 8vw, 52px); line-height: 0.95;
-  text-transform: uppercase; color: #FFFFFF; margin-bottom: 36px;
-}
-
-/* PAIN / FIX */
-.group-label {
-  font-family: 'Barlow Condensed', sans-serif; font-size: 10px; font-weight: 700;
-  letter-spacing: 0.2em; text-transform: uppercase; color: #9090AA;
-  margin-bottom: 12px; margin-top: 36px;
-}
-.group-label:first-of-type { margin-top: 0; }
-.item-list { list-style: none; }
-.item-list li {
-  display: flex; align-items: flex-start; gap: 16px;
-  padding: 15px 0; border-bottom: 1px solid rgba(255,255,255,0.07);
-  font-size: 16px; color: rgba(255,255,255,0.78); line-height: 1.5;
-}
-.item-list li:last-child { border-bottom: none; }
-.icon-x { color: #C0392B; font-size: 13px; font-weight: 700; flex-shrink: 0; margin-top: 3px; font-family: 'Barlow Condensed', sans-serif; }
-.icon-arr { color: #B8962E; font-size: 15px; flex-shrink: 0; margin-top: 2px; }
-
-/* EMAIL CAPTURE */
-.email-section {
-  background: #20223A;
-  border-top: 1px solid rgba(255,255,255,0.07);
-  border-bottom: 1px solid rgba(255,255,255,0.07);
-  padding: 64px 24px;
-}
-.capture-tag {
-  display: inline-block; background: #B8962E; color: #1A1A2E;
-  font-family: 'Barlow Condensed', sans-serif; font-weight: 700;
-  font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase;
-  padding: 4px 10px; margin-bottom: 20px;
-}
-.capture-headline {
-  font-family: 'Barlow Condensed', sans-serif; font-weight: 900;
-  font-size: clamp(30px, 7vw, 44px); line-height: 0.95;
-  text-transform: uppercase; color: #FFFFFF; margin-bottom: 12px;
-}
-.capture-sub {
-  font-size: 15px; color: rgba(255,255,255,0.58);
-  margin-bottom: 24px; max-width: 400px; line-height: 1.65;
-}
-.capture-items { list-style: none; margin-bottom: 32px; }
-.capture-items li {
-  font-size: 14px; color: rgba(255,255,255,0.65);
-  padding: 6px 0; display: flex; align-items: center; gap: 10px;
-}
-.capture-items li::before {
-  content: ''; width: 5px; height: 5px;
-  background: #B8962E; flex-shrink: 0; border-radius: 50%;
-}
-.kit-wrapper { max-width: 420px; }
-
-/* Kit form overrides */
-.kit-wrapper .formkit-form { background: transparent !important; padding: 0 !important; border: none !important; box-shadow: none !important; }
-.kit-wrapper .formkit-field input,
-.kit-wrapper input[type="email"] {
-  background: rgba(255,255,255,0.06) !important;
-  border: 1px solid rgba(255,255,255,0.15) !important;
-  border-radius: 0 !important; color: #FFFFFF !important;
-  font-family: 'Barlow', sans-serif !important; font-size: 15px !important;
-  padding: 14px 16px !important; width: 100% !important;
-}
-.kit-wrapper .formkit-submit,
-.kit-wrapper button[type="submit"] {
-  background: #B8962E !important; color: #1A1A2E !important;
-  font-family: 'Barlow Condensed', sans-serif !important; font-weight: 700 !important;
-  font-size: 13px !important; letter-spacing: 0.14em !important;
-  text-transform: uppercase !important; border: none !important;
-  border-radius: 0 !important; padding: 14px 28px !important;
-  cursor: pointer !important; width: 100% !important;
-  margin-top: 10px !important; transition: background 0.2s !important;
-}
-.kit-wrapper .formkit-guarantee,
-.kit-wrapper [data-element="guarantee"] {
-  color: rgba(255,255,255,0.3) !important; font-size: 12px !important;
-  margin-top: 10px !important; text-align: left !important;
-}
-.kit-wrapper .formkit-powered-by-convertkit-container { display: none !important; }
-
-/* PRODUCTS */
-.products-headline {
-  font-family: 'Barlow Condensed', sans-serif; font-weight: 900;
-  font-size: clamp(34px, 8vw, 52px); line-height: 0.95;
-  text-transform: uppercase; color: #FFFFFF; margin-bottom: 36px;
-}
-.product-card { background: #252842; padding: 32px 28px; margin-bottom: 16px; }
-.product-tag {
-  font-family: 'Barlow Condensed', sans-serif; font-size: 10px; font-weight: 700;
-  letter-spacing: 0.2em; text-transform: uppercase; color: #D4AF6A; margin-bottom: 12px;
-}
-.product-name {
-  font-family: 'Barlow Condensed', sans-serif; font-weight: 900;
-  font-size: 24px; line-height: 1.05; text-transform: uppercase;
-  color: #FFFFFF; margin-bottom: 8px;
-}
-.product-sub { font-size: 14px; color: rgba(255,255,255,0.5); margin-bottom: 20px; line-height: 1.5; }
-.product-price {
-  font-family: 'Barlow Condensed', sans-serif; font-weight: 900;
-  font-size: 38px; color: #D4AF6A; line-height: 1; margin-bottom: 4px;
-}
-.product-price span { font-size: 16px; color: #9090AA; font-weight: 400; font-family: 'Barlow', sans-serif; margin-left: 6px; }
-.product-features { list-style: none; margin: 20px 0 24px; border-top: 1px solid rgba(255,255,255,0.07); }
-.product-features li {
-  display: flex; align-items: flex-start; gap: 12px;
-  padding: 11px 0; border-bottom: 1px solid rgba(255,255,255,0.07);
-  font-size: 14px; color: rgba(255,255,255,0.7); line-height: 1.4;
-}
-.check { color: #D4AF6A; font-size: 13px; flex-shrink: 0; margin-top: 1px; }
-.btn-gold-block {
-  display: block; text-align: center; background: #B8962E; color: #1A1A2E;
-  font-family: 'Barlow Condensed', sans-serif; font-weight: 700;
-  font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase;
-  text-decoration: none; padding: 15px 28px; transition: background 0.2s;
-}
-.btn-gold-block:hover { background: #D4AF6A; }
-
-/* BUNDLE */
-.bundle-card {
-  background: #252842; border: 1px solid rgba(184,150,46,0.3);
-  padding: 32px 28px; margin-top: 16px;
-}
-.bundle-tag {
-  font-family: 'Barlow Condensed', sans-serif; font-size: 10px; font-weight: 700;
-  letter-spacing: 0.2em; text-transform: uppercase; color: #D4AF6A; margin-bottom: 12px;
-}
-.bundle-name {
-  font-family: 'Barlow Condensed', sans-serif; font-weight: 900;
-  font-size: 26px; text-transform: uppercase; color: #FFFFFF; margin-bottom: 14px;
-}
-.bundle-desc { font-size: 15px; color: rgba(255,255,255,0.6); line-height: 1.65; margin-bottom: 20px; }
-.bundle-was { font-size: 14px; color: #9090AA; text-decoration: line-through; margin-bottom: 4px; }
-.bundle-price { font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: 52px; color: #D4AF6A; line-height: 1; margin-bottom: 4px; }
-.bundle-save { font-family: 'Barlow Condensed', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: #D4AF6A; margin-bottom: 24px; }
-.btn-coming {
-  display: block; text-align: center; padding: 15px 28px;
-  background: rgba(184,150,46,0.2); color: #D4AF6A;
-  font-family: 'Barlow Condensed', sans-serif; font-weight: 700;
-  font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase;
-  text-decoration: none; border: 1px solid rgba(184,150,46,0.3);
-}
-.bundle-note { text-align: center; font-size: 12px; color: rgba(255,255,255,0.3); margin-top: 10px; }
-
-/* STORY */
-.story-quote {
-  font-family: 'Cormorant Garamond', serif; font-style: italic;
-  font-size: clamp(22px, 5vw, 30px); line-height: 1.35;
-  color: #FFFFFF; margin-bottom: 28px;
-}
-.story-quote em { color: #D4AF6A; font-style: normal; }
-.story-body { font-size: 16px; color: rgba(255,255,255,0.65); line-height: 1.75; margin-bottom: 14px; }
-.story-sig {
-  font-family: 'Barlow Condensed', sans-serif; font-weight: 700;
-  font-size: 14px; letter-spacing: 0.18em; text-transform: uppercase;
-  color: #D4AF6A; margin-top: 28px;
-}
-
-/* TRUST SECTION */
-.trust-section {
-  background: #20223A; border-top: 1px solid rgba(255,255,255,0.07);
-  text-align: center; padding: 64px 24px;
-}
-.trust-headline {
-  font-family: 'Barlow Condensed', sans-serif; font-weight: 900;
-  font-size: clamp(28px, 7vw, 42px); text-transform: uppercase;
-  color: #FFFFFF; margin-bottom: 16px; line-height: 1;
-}
-.trust-body { font-size: 15px; color: rgba(255,255,255,0.55); max-width: 400px; margin: 0 auto; line-height: 1.7; }
-
-/* CLOSER */
-.closer {
-  background: #252842; border-top: 1px solid rgba(255,255,255,0.07);
-  padding: 64px 24px; text-align: center;
-}
-.closer-label {
-  font-family: 'Barlow Condensed', sans-serif; font-size: 10px; font-weight: 700;
-  letter-spacing: 0.22em; text-transform: uppercase; color: #D4AF6A; margin-bottom: 16px;
-}
-.closer-headline {
-  font-family: 'Barlow Condensed', sans-serif; font-weight: 900;
-  font-size: clamp(36px, 9vw, 54px); text-transform: uppercase;
-  color: #FFFFFF; line-height: 0.95; margin-bottom: 16px;
-}
-.closer-sub { font-size: 15px; color: rgba(255,255,255,0.55); max-width: 380px; margin: 0 auto 32px; line-height: 1.65; }
-.closer-btns { display: flex; flex-direction: column; gap: 12px; align-items: center; }
-.btn-gold-full {
-  background: #B8962E; color: #1A1A2E;
-  font-family: 'Barlow Condensed', sans-serif; font-weight: 700;
-  font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase;
-  text-decoration: none; padding: 15px 28px; display: block;
-  width: 100%; max-width: 340px; text-align: center; transition: background 0.2s;
-}
-.btn-gold-full:hover { background: #D4AF6A; }
-
-/* FOOTER */
-footer {
-  background: #1A1A2E; border-top: 1px solid rgba(255,255,255,0.07);
-  padding: 32px 24px; text-align: center;
-}
-.footer-logo {
-  font-family: 'Barlow Condensed', sans-serif; font-weight: 800;
-  font-size: 15px; letter-spacing: 0.14em; text-transform: uppercase;
-  color: rgba(255,255,255,0.4); margin-bottom: 8px;
-}
-.footer-logo span { color: #B8962E; }
-.footer-copy { font-size: 12px; color: rgba(255,255,255,0.25); line-height: 1.7; }
-```
-
+    html { scroll-behavior: smooth; }
+    body {
+      background: #1A1A2E;
+      color: #FFFFFF;
+      font-family: 'Barlow', sans-serif;
+      font-weight: 400;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    /* NAV */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: #1A1A2E;
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 24px; height: 62px;
+    }
+    .logo {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 800; font-size: 17px; letter-spacing: 0.14em;
+      color: #FFFFFF; text-decoration: none; text-transform: uppercase;
+    }
+    .logo span { color: #B8962E; margin: 0 4px; }
+    .nav-cta {
+      background: #B8962E; color: #1A1A2E;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700; font-size: 12px; letter-spacing: 0.14em;
+      text-transform: uppercase; text-decoration: none;
+      padding: 10px 18px; display: inline-block; transition: background 0.2s;
+    }
+    .nav-cta:hover { background: #D4AF6A; }
+    /* HERO */
+    .hero { padding: 68px 24px 60px; }
+    .eyebrow {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 11px; font-weight: 700; letter-spacing: 0.22em;
+      text-transform: uppercase; color: #D4AF6A; margin-bottom: 22px;
+    }
+    .hero-headline {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 900; font-size: clamp(54px, 14vw, 84px);
+      line-height: 0.91; text-transform: uppercase;
+      color: #FFFFFF; margin-bottom: 30px;
+    }
+    .italic-gold {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic; font-weight: 600;
+      color: #D4AF6A; text-transform: none;
+      font-size: 1.07em; line-height: 0.9; display: block;
+    }
+    .hero-body {
+      font-size: 16px; color: rgba(255,255,255,0.72);
+      line-height: 1.7; margin-bottom: 36px; max-width: 460px;
+    }
+    .hero-body strong { color: #FFFFFF; font-weight: 500; }
+    .hero-ctas { display: flex; flex-direction: column; gap: 14px; align-items: flex-start; }
+    .btn-gold {
+      background: #B8962E; color: #1A1A2E;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700; font-size: 13px; letter-spacing: 0.14em;
+      text-transform: uppercase; text-decoration: none;
+      padding: 15px 32px; display: inline-block; transition: background 0.2s;
+    }
+    .btn-gold:hover { background: #D4AF6A; }
+    .btn-ghost {
+      color: rgba(255,255,255,0.45); font-size: 12px; letter-spacing: 0.1em;
+      text-decoration: none; text-transform: uppercase;
+      font-family: 'Barlow Condensed', sans-serif; font-weight: 700;
+      border-bottom: 1px solid rgba(255,255,255,0.18);
+      padding-bottom: 2px; transition: color 0.2s;
+    }
+    .btn-ghost:hover { color: #FFFFFF; }
+    /* STATS */
+    .stats {
+      border-top: 1px solid rgba(255,255,255,0.08);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      display: grid; grid-template-columns: 1fr 1fr;
+    }
+    .stat { padding: 28px 24px; border-right: 1px solid rgba(255,255,255,0.08); }
+    .stat:nth-child(even) { border-right: none; }
+    .stat:nth-child(n+3) { border-top: 1px solid rgba(255,255,255,0.08); }
+    .stat-row { display: flex; align-items: flex-start; gap: 12px; }
+    .gold-bar { width: 3px; height: 34px; background: #B8962E; flex-shrink: 0; margin-top: 2px; }
+    .stat-num { font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: 40px; line-height: 1; color: #FFFFFF; }
+    .stat-label { font-family: 'Barlow Condensed', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: #9090AA; margin-top: 5px; }
+    /* TRUST BAR */
+    .trust-bar {
+      background: #20223A; padding: 14px 24px;
+      text-align: center; font-size: 13px; color: rgba(255,255,255,0.4); line-height: 1.8;
+    }
+    .trust-bar strong { color: rgba(255,255,255,0.72); font-weight: 500; }
+    /* SECTIONS */
+    section { padding: 72px 24px; }
+    .section-label {
+      font-family: 'Barlow Condensed', sans-serif; font-size: 10px; font-weight: 700;
+      letter-spacing: 0.22em; text-transform: uppercase; color: #D4AF6A; margin-bottom: 18px;
+    }
+    .section-headline {
+      font-family: 'Barlow Condensed', sans-serif; font-weight: 900;
+      font-size: clamp(34px, 8vw, 52px); line-height: 0.95;
+      text-transform: uppercase; color: #FFFFFF; margin-bottom: 36px;
+    }
+    /* PAIN / FIX */
+    .group-label {
+      font-family: 'Barlow Condensed', sans-serif; font-size: 10px; font-weight: 700;
+      letter-spacing: 0.2em; text-transform: uppercase; color: #9090AA;
+      margin-bottom: 12px; margin-top: 36px;
+    }
+    .group-label:first-of-type { margin-top: 0; }
+    .item-list { list-style: none; }
+    .item-list li {
+      display: flex; align-items: flex-start; gap: 16px;
+      padding: 15px 0; border-bottom: 1px solid rgba(255,255,255,0.07);
+      font-size: 16px; color: rgba(255,255,255,0.78); line-height: 1.5;
+    }
+    .item-list li:last-child { border-bottom: none; }
+    .icon-x { color: #C0392B; font-size: 13px; font-weight: 700; flex-shrink: 0; margin-top: 3px; font-family: 'Barlow Condensed', sans-serif; }
+    .icon-arr { color: #B8962E; font-size: 15px; flex-shrink: 0; margin-top: 2px; }
+    /* EMAIL CAPTURE */
+    .email-section {
+      background: #20223A;
+      border-top: 1px solid rgba(255,255,255,0.07);
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+      padding: 64px 24px;
+    }
+    .capture-tag {
+      display: inline-block; background: #B8962E; color: #1A1A2E;
+      font-family: 'Barlow Condensed', sans-serif; font-weight: 700;
+      font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase;
+      padding: 4px 10px; margin-bottom: 20px;
+    }
+    .capture-headline {
+      font-family: 'Barlow Condensed', sans-serif; font-weight: 900;
+      font-size: clamp(30px, 7vw, 44px); line-height: 0.95;
+      text-transform: uppercase; color: #FFFFFF; margin-bottom: 12px;
+    }
+    .capture-sub {
+      font-size: 15px; color: rgba(255,255,255,0.58);
+      margin-bottom: 24px; max-width: 400px; line-height: 1.65;
+    }
+    .capture-items { list-style: none; margin-bottom: 32px; }
+    .capture-items li {
+      font-size: 14px; color: rgba(255,255,255,0.65);
+      padding: 6px 0; display: flex; align-items: center; gap: 10px;
+    }
+    .capture-items li::before {
+      content: ''; width: 5px; height: 5px;
+      background: #B8962E; flex-shrink: 0; border-radius: 50%;
+    }
+    .kit-wrapper { max-width: 420px; }
+    .kit-wrapper .formkit-form { background: transparent !important; padding: 0 !important; border: none !important; box-shadow: none !important; }
+    .kit-wrapper .formkit-field input,
+    .kit-wrapper input[type="email"] {
+      background: rgba(255,255,255,0.06) !important;
+      border: 1px solid rgba(255,255,255,0.15) !important;
+      border-radius: 0 !important; color: #FFFFFF !important;
+      font-family: 'Barlow', sans-serif !important; font-size: 15px !important;
+      padding: 14px 16px !important; width: 100% !important;
+    }
+    .kit-wrapper .formkit-submit,
+    .kit-wrapper button[type="submit"] {
+      background: #B8962E !important; color: #1A1A2E !important;
+      font-family: 'Barlow Condensed', sans-serif !important; font-weight: 700 !important;
+      font-size: 13px !important; letter-spacing: 0.14em !important;
+      text-transform: uppercase !important; border: none !important;
+      border-radius: 0 !important; padding: 14px 28px !important;
+      cursor: pointer !important; width: 100% !important;
+      margin-top: 10px !important; transition: background 0.2s !important;
+    }
+    .kit-wrapper .formkit-guarantee,
+    .kit-wrapper [data-element="guarantee"] {
+      color: rgba(255,255,255,0.3) !important; font-size: 12px !important;
+      margin-top: 10px !important; text-align: left !important;
+    }
+    .kit-wrapper .formkit-powered-by-convertkit-container { display: none !important; }
+    /* PRODUCTS */
+    .products-headline {
+      font-family: 'Barlow Condensed', sans-serif; font-weight: 900;
+      font-size: clamp(34px, 8vw, 52px); line-height: 0.95;
+      text-transform: uppercase; color: #FFFFFF; margin-bottom: 36px;
+    }
+    .product-card { background: #252842; padding: 32px 28px; margin-bottom: 16px; }
+    .product-tag {
+      font-family: 'Barlow Condensed', sans-serif; font-size: 10px; font-weight: 700;
+      letter-spacing: 0.2em; text-transform: uppercase; color: #D4AF6A; margin-bottom: 12px;
+    }
+    .product-name {
+      font-family: 'Barlow Condensed', sans-serif; font-weight: 900;
+      font-size: 24px; line-height: 1.05; text-transform: uppercase;
+      color: #FFFFFF; margin-bottom: 8px;
+    }
+    .product-sub { font-size: 14px; color: rgba(255,255,255,0.5); margin-bottom: 20px; line-height: 1.5; }
+    .product-price {
+      font-family: 'Barlow Condensed', sans-serif; font-weight: 900;
+      font-size: 38px; color: #D4AF6A; line-height: 1; margin-bottom: 4px;
+    }
+    .product-price span { font-size: 16px; color: #9090AA; font-weight: 400; font-family: 'Barlow', sans-serif; margin-left: 6px; }
+    .product-features { list-style: none; margin: 20px 0 24px; border-top: 1px solid rgba(255,255,255,0.07); }
+    .product-features li {
+      display: flex; align-items: flex-start; gap: 12px;
+      padding: 11px 0; border-bottom: 1px solid rgba(255,255,255,0.07);
+      font-size: 14px; color: rgba(255,255,255,0.7); line-height: 1.4;
+    }
+    .check { color: #D4AF6A; font-size: 13px; flex-shrink: 0; margin-top: 1px; }
+    .btn-gold-block {
+      display: block; text-align: center; background: #B8962E; color: #1A1A2E;
+      font-family: 'Barlow Condensed', sans-serif; font-weight: 700;
+      font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase;
+      text-decoration: none; padding: 15px 28px; transition: background 0.2s;
+    }
+    .btn-gold-block:hover { background: #D4AF6A; }
+    /* BUNDLE */
+    .bundle-card {
+      background: #252842; border: 1px solid rgba(184,150,46,0.3);
+      padding: 32px 28px; margin-top: 16px;
+    }
+    .bundle-tag {
+      font-family: 'Barlow Condensed', sans-serif; font-size: 10px; font-weight: 700;
+      letter-spacing: 0.2em; text-transform: uppercase; color: #D4AF6A; margin-bottom: 12px;
+    }
+    .bundle-name {
+      font-family: 'Barlow Condensed', sans-serif; font-weight: 900;
+      font-size: 26px; text-transform: uppercase; color: #FFFFFF; margin-bottom: 14px;
+    }
+    .bundle-desc { font-size: 15px; color: rgba(255,255,255,0.6); line-height: 1.65; margin-bottom: 20px; }
+    .bundle-was { font-size: 14px; color: #9090AA; text-decoration: line-through; margin-bottom: 4px; }
+    .bundle-price { font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: 52px; color: #D4AF6A; line-height: 1; margin-bottom: 4px; }
+    .bundle-save { font-family: 'Barlow Condensed', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: #D4AF6A; margin-bottom: 24px; }
+    /* STORY */
+    .story-quote {
+      font-family: 'Cormorant Garamond', serif; font-style: italic;
+      font-size: clamp(22px, 5vw, 30px); line-height: 1.35;
+      color: #FFFFFF; margin-bottom: 28px;
+    }
+    .story-quote em { color: #D4AF6A; font-style: normal; }
+    .story-body { font-size: 16px; color: rgba(255,255,255,0.65); line-height: 1.75; margin-bottom: 14px; }
+    .story-sig {
+      font-family: 'Barlow Condensed', sans-serif; font-weight: 700;
+      font-size: 14px; letter-spacing: 0.18em; text-transform: uppercase;
+      color: #D4AF6A; margin-top: 28px;
+    }
+    /* TRUST SECTION */
+    .trust-section {
+      background: #20223A; border-top: 1px solid rgba(255,255,255,0.07);
+      text-align: center; padding: 64px 24px;
+    }
+    .trust-headline {
+      font-family: 'Barlow Condensed', sans-serif; font-weight: 900;
+      font-size: clamp(28px, 7vw, 42px); text-transform: uppercase;
+      color: #FFFFFF; margin-bottom: 16px; line-height: 1;
+    }
+    .trust-body { font-size: 15px; color: rgba(255,255,255,0.55); max-width: 400px; margin: 0 auto; line-height: 1.7; }
+    /* CLOSER */
+    .closer {
+      background: #252842; border-top: 1px solid rgba(255,255,255,0.07);
+      padding: 64px 24px; text-align: center;
+    }
+    .closer-label {
+      font-family: 'Barlow Condensed', sans-serif; font-size: 10px; font-weight: 700;
+      letter-spacing: 0.22em; text-transform: uppercase; color: #D4AF6A; margin-bottom: 16px;
+    }
+    .closer-headline {
+      font-family: 'Barlow Condensed', sans-serif; font-weight: 900;
+      font-size: clamp(36px, 9vw, 54px); text-transform: uppercase;
+      color: #FFFFFF; line-height: 0.95; margin-bottom: 16px;
+    }
+    .closer-sub { font-size: 15px; color: rgba(255,255,255,0.55); max-width: 380px; margin: 0 auto 32px; line-height: 1.65; }
+    .closer-btns { display: flex; flex-direction: column; gap: 12px; align-items: center; }
+    .btn-gold-full {
+      background: #B8962E; color: #1A1A2E;
+      font-family: 'Barlow Condensed', sans-serif; font-weight: 700;
+      font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase;
+      text-decoration: none; padding: 15px 28px; display: block;
+      width: 100%; max-width: 340px; text-align: center; transition: background 0.2s;
+    }
+    .btn-gold-full:hover { background: #D4AF6A; }
+    .btn-gold-full.bundle {
+      background: #1A1A2E; color: #D4AF6A;
+      border: 1px solid rgba(184,150,46,0.5);
+    }
+    .btn-gold-full.bundle:hover { background: #252842; border-color: #D4AF6A; }
+    /* FOOTER */
+    footer {
+      background: #1A1A2E; border-top: 1px solid rgba(255,255,255,0.07);
+      padding: 32px 24px; text-align: center;
+    }
+    .footer-logo {
+      font-family: 'Barlow Condensed', sans-serif; font-weight: 800;
+      font-size: 15px; letter-spacing: 0.14em; text-transform: uppercase;
+      color: rgba(255,255,255,0.4); margin-bottom: 8px;
+    }
+    .footer-logo span { color: #B8962E; }
+    .footer-copy { font-size: 12px; color: rgba(255,255,255,0.25); line-height: 1.7; }
   </style>
 </head>
 <body>
-
   <!-- NAV -->
-
   <nav>
     <a href="#" class="logo">PAIRED<span>|</span>STRENGTH</a>
     <a href="#programs" class="nav-cta">See the Programs</a>
   </nav>
 
   <!-- HERO -->
-
   <div class="hero">
     <p class="eyebrow">Built by a real couple. For busy couples.</p>
     <h1 class="hero-headline">
@@ -361,7 +335,6 @@ footer {
   </div>
 
   <!-- STATS -->
-
   <div class="stats">
     <div class="stat">
       <div class="stat-row">
@@ -402,43 +375,36 @@ footer {
   </div>
 
   <!-- TRUST BAR -->
-
   <div class="trust-bar">
     <strong>Real products. Instant download. No subscription.</strong>
     &nbsp;·&nbsp; Used by busy couples across the US &nbsp;·&nbsp; Delivered via Gumroad
   </div>
 
   <!-- PAIN / FIX -->
-
   <section>
     <p class="section-label">Sound Familiar?</p>
     <h2 class="section-headline">THE <span class="italic-gold">pattern</span> MOST COUPLES ARE STUCK IN</h2>
 
-```
-<p class="group-label">The Cycle</p>
-<ul class="item-list">
-  <li><span class="icon-x">✕</span> Too tired to cook Monday through Friday so you order in</li>
-  <li><span class="icon-x">✕</span> $300+ a month on takeout that doesn't even hit right</li>
-  <li><span class="icon-x">✕</span> Both of you want to train but have no real structure</li>
-  <li><span class="icon-x">✕</span> Generic programs built for people with 2 hours a day</li>
-  <li><span class="icon-x">✕</span> Meal prep guides that need 4 hours and 40 ingredients</li>
-  <li><span class="icon-x">✕</span> Doing it alone because nothing is built for two</li>
-</ul>
-
-<p class="group-label">The Fix</p>
-<ul class="item-list">
-  <li><span class="icon-arr">→</span> 10 meals prepped in 60 minutes on Sunday. Done.</li>
-  <li><span class="icon-arr">→</span> Cut the takeout spend and eat better every single week</li>
-  <li><span class="icon-arr">→</span> 8-week programs built around real working schedules</li>
-  <li><span class="icon-arr">→</span> 4 training days a week. 60 to 75 minutes. Nothing more.</li>
-  <li><span class="icon-arr">→</span> One system. Two people. Everything handled.</li>
-</ul>
-```
-
+    <p class="group-label">The Cycle</p>
+    <ul class="item-list">
+      <li><span class="icon-x">✕</span> Too tired to cook Monday through Friday so you order in</li>
+      <li><span class="icon-x">✕</span> $300+ a month on takeout that doesn't even hit right</li>
+      <li><span class="icon-x">✕</span> Both of you want to train but have no real structure</li>
+      <li><span class="icon-x">✕</span> Generic programs built for people with 2 hours a day</li>
+      <li><span class="icon-x">✕</span> Meal prep guides that need 4 hours and 40 ingredients</li>
+      <li><span class="icon-x">✕</span> Doing it alone because nothing is built for two</li>
+    </ul>
+    <p class="group-label">The Fix</p>
+    <ul class="item-list">
+      <li><span class="icon-arr">→</span> 10 meals prepped in 60 minutes on Sunday. Done.</li>
+      <li><span class="icon-arr">→</span> Cut the takeout spend and eat better every single week</li>
+      <li><span class="icon-arr">→</span> 8-week programs built around real working schedules</li>
+      <li><span class="icon-arr">→</span> 4 training days a week. 60 to 75 minutes. Nothing more.</li>
+      <li><span class="icon-arr">→</span> One system. Two people. Everything handled.</li>
+    </ul>
   </section>
 
   <!-- EMAIL CAPTURE -->
-
   <div class="email-section">
     <span class="capture-tag">Free Download</span>
     <h2 class="capture-headline">
@@ -498,80 +464,74 @@ footer {
   </div>
 
   <!-- PROGRAMS -->
-
   <section id="programs">
     <p class="section-label">The Programs</p>
     <h2 class="products-headline">EVERYTHING YOU NEED.<br><span class="italic-gold">Nothing you don't.</span></h2>
 
-```
-<!-- Meal Prep -->
-<div class="product-card">
-  <p class="product-tag">Nutrition</p>
-  <h3 class="product-name">The Couples Meal Prep System</h3>
-  <p class="product-sub">Bulk buy once. Prep in an hour. Eat all week.</p>
-  <div class="product-price">$17 <span>one-time</span></div>
-  <ul class="product-features">
-    <li><span class="check">✓</span> Protein + Carb + Veggie system — no recipes needed</li>
-    <li><span class="check">✓</span> 16-page guide with full grocery lists</li>
-    <li><span class="check">✓</span> 16 meal combos from our actual weekly rotation</li>
-    <li><span class="check">✓</span> Step-by-step Sunday walkthrough, exact timing and order</li>
-    <li><span class="check">✓</span> Foundation Track and Rebuild Track included</li>
-    <li><span class="check">✓</span> Instant PDF download</li>
-  </ul>
-  <a href="https://pairedstrength.gumroad.com/l/mealprep" class="btn-gold-block">Get the System — $17</a>
-</div>
+    <!-- Meal Prep -->
+    <div class="product-card">
+      <p class="product-tag">Nutrition</p>
+      <h3 class="product-name">The Couples Meal Prep System</h3>
+      <p class="product-sub">Bulk buy once. Prep in an hour. Eat all week.</p>
+      <div class="product-price">$17 <span>one-time</span></div>
+      <ul class="product-features">
+        <li><span class="check">✓</span> Protein + Carb + Veggie system — no recipes needed</li>
+        <li><span class="check">✓</span> 16-page guide with full grocery lists</li>
+        <li><span class="check">✓</span> 16 meal combos from our actual weekly rotation</li>
+        <li><span class="check">✓</span> Step-by-step Sunday walkthrough, exact timing and order</li>
+        <li><span class="check">✓</span> Foundation Track and Rebuild Track included</li>
+        <li><span class="check">✓</span> Instant PDF download</li>
+      </ul>
+      <a href="https://pairedstrength.gumroad.com/l/mealprep" class="btn-gold-block">Get the System — $17</a>
+    </div>
 
-<!-- Sophie -->
-<div class="product-card">
-  <p class="product-tag">Training — Sophie</p>
-  <h3 class="product-name">Sophie's 8-Week Glute, Pilates & Strength Program</h3>
-  <p class="product-sub">Build strength, move better, feel it in every part of your life.</p>
-  <div class="product-price">$19 <span>one-time</span></div>
-  <ul class="product-features">
-    <li><span class="check">✓</span> 8 weeks of progressive glute, Pilates and strength training</li>
-    <li><span class="check">✓</span> 5 days a week — 45 to 60 minutes per session</li>
-    <li><span class="check">✓</span> Monday to Friday structure with rest and mobility built in</li>
-    <li><span class="check">✓</span> Hormonal health section — sleep, cycles, skin, inflammation</li>
-    <li><span class="check">✓</span> Home and gym alternatives for every exercise</li>
-    <li><span class="check">✓</span> Program PDF + printable tracker + Excel/Sheets tracker</li>
-  </ul>
-  <a href="https://pairedstrength.gumroad.com/l/sophies-program" class="btn-gold-block">Get the Program — $19</a>
-</div>
+    <!-- Sophie -->
+    <div class="product-card">
+      <p class="product-tag">Training — Sophie</p>
+      <h3 class="product-name">Sophie's 8-Week Glute, Pilates & Strength Program</h3>
+      <p class="product-sub">Build strength, move better, feel it in every part of your life.</p>
+      <div class="product-price">$19 <span>one-time</span></div>
+      <ul class="product-features">
+        <li><span class="check">✓</span> 8 weeks of progressive glute, Pilates and strength training</li>
+        <li><span class="check">✓</span> 5 days a week — 45 to 60 minutes per session</li>
+        <li><span class="check">✓</span> Monday to Friday structure with rest and mobility built in</li>
+        <li><span class="check">✓</span> Hormonal health section — sleep, cycles, skin, inflammation</li>
+        <li><span class="check">✓</span> Home and gym alternatives for every exercise</li>
+        <li><span class="check">✓</span> Program PDF + printable tracker + Excel/Sheets tracker</li>
+      </ul>
+      <a href="https://pairedstrength.gumroad.com/l/sophies-program" class="btn-gold-block">Get the Program — $19</a>
+    </div>
 
-<!-- Sam -->
-<div class="product-card">
-  <p class="product-tag">Training — Sam</p>
-  <h3 class="product-name">Sam's 8-Week Strength Program</h3>
-  <p class="product-sub">Progressive overload. Full range of motion. Real results.</p>
-  <div class="product-price">$19 <span>one-time</span></div>
-  <ul class="product-features">
-    <li><span class="check">✓</span> 8 weeks of structured strength training</li>
-    <li><span class="check">✓</span> 4 days a week — 60 to 75 minutes per session</li>
-    <li><span class="check">✓</span> Tempo-focused — slow eccentrics, full range every rep</li>
-    <li><span class="check">✓</span> Progressive overload built into every two-week block</li>
-    <li><span class="check">✓</span> Home swap exercises for every gym movement</li>
-    <li><span class="check">✓</span> Program PDF + printable tracker + Excel/Sheets tracker</li>
-  </ul>
-  <a href="https://pairedstrength.gumroad.com/l/sams-program" class="btn-gold-block">Get the Program — $19</a>
-</div>
+    <!-- Sam -->
+    <div class="product-card">
+      <p class="product-tag">Training — Sam</p>
+      <h3 class="product-name">Sam's 8-Week Strength Program</h3>
+      <p class="product-sub">Progressive overload. Full range of motion. Real results.</p>
+      <div class="product-price">$19 <span>one-time</span></div>
+      <ul class="product-features">
+        <li><span class="check">✓</span> 8 weeks of structured strength training</li>
+        <li><span class="check">✓</span> 4 days a week — 60 to 75 minutes per session</li>
+        <li><span class="check">✓</span> Tempo-focused — slow eccentrics, full range every rep</li>
+        <li><span class="check">✓</span> Progressive overload built into every two-week block</li>
+        <li><span class="check">✓</span> Home swap exercises for every gym movement</li>
+        <li><span class="check">✓</span> Program PDF + printable tracker + Excel/Sheets tracker</li>
+      </ul>
+      <a href="https://pairedstrength.gumroad.com/l/sams-program" class="btn-gold-block">Get the Program — $19</a>
+    </div>
 
-<!-- Bundle -->
-<div class="bundle-card">
-  <p class="bundle-tag">Best Value — Coming Soon</p>
-  <h3 class="bundle-name">The Paired Strength Bundle</h3>
-  <p class="bundle-desc">All three programs together. The meal prep system, both 8-week training programs, and all trackers. Everything you need to eat well and train consistently as a couple.</p>
-  <p class="bundle-was">Worth $55</p>
-  <div class="bundle-price">$42</div>
-  <p class="bundle-save">Save $13</p>
-  <a href="#" class="btn-coming">Coming Soon</a>
-  <p class="bundle-note">Follow @PairedStrength to get notified</p>
-</div>
-```
-
+    <!-- Bundle -->
+    <div class="bundle-card">
+      <p class="bundle-tag">Best Value — All Three Together</p>
+      <h3 class="bundle-name">The Paired Strength Bundle</h3>
+      <p class="bundle-desc">All three programs together. The meal prep system, both 8-week training programs, and all trackers. Everything you need to eat well and train consistently as a couple.</p>
+      <p class="bundle-was">Worth $55</p>
+      <div class="bundle-price">$42</div>
+      <p class="bundle-save">Save $13</p>
+      <a href="https://pairedstrength.gumroad.com/l/ThePairedStrengthBundle" class="btn-gold-block">Get the Bundle — $42</a>
+    </div>
   </section>
 
   <!-- STORY -->
-
   <section id="story">
     <p class="section-label">Who Built This</p>
     <p class="story-quote">
@@ -590,19 +550,18 @@ footer {
   </section>
 
   <!-- TRUST -->
-
   <div class="trust-section">
     <h2 class="trust-headline">SIMPLE. HONEST.<br>NO NONSENSE.</h2>
     <p class="trust-body">These are real programs that we actually use. Instant download, no subscription, no upsells. If you have a genuine issue with your purchase, reach out via Gumroad and we'll make it right.</p>
   </div>
 
   <!-- CLOSER -->
-
   <div class="closer">
     <p class="closer-label">Start This Week</p>
     <h2 class="closer-headline">PICK UP<br><span class="italic-gold">a program.</span></h2>
     <p class="closer-sub">Stop figuring it out every Sunday. Get the system, run the program, eat well all week. Both programs come with full trackers so you know exactly where you are every session.</p>
     <div class="closer-btns">
+      <a href="https://pairedstrength.gumroad.com/l/ThePairedStrengthBundle" class="btn-gold-full bundle">The Bundle — $42 (Save $13)</a>
       <a href="https://pairedstrength.gumroad.com/l/mealprep" class="btn-gold-full">Meal Prep — $17</a>
       <a href="https://pairedstrength.gumroad.com/l/sophies-program" class="btn-gold-full">Sophie's Program — $19</a>
       <a href="https://pairedstrength.gumroad.com/l/sams-program" class="btn-gold-full">Sam's Program — $19</a>
@@ -610,7 +569,6 @@ footer {
   </div>
 
   <!-- FOOTER -->
-
   <footer>
     <p class="footer-logo">PAIRED<span>|</span>STRENGTH</p>
     <p class="footer-copy">
@@ -618,6 +576,5 @@ footer {
       © 2026 Paired Strength
     </p>
   </footer>
-
 </body>
 </html>
