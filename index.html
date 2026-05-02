@@ -64,6 +64,12 @@
       transition: border-color 0.2s, color 0.2s;
     }
     .nav-free:hover { border-color: #D4AF6A; color: #FFFFFF; }
+    @media (max-width: 520px) {
+      .nav-free { display: none; }
+      nav { padding: 0 16px; }
+      .logo { font-size: 15px; letter-spacing: 0.10em; }
+      .nav-cta { font-size: 11px; padding: 9px 13px; letter-spacing: 0.10em; }
+    }
     .nav-cta {
       background: #B8962E; color: #1A1A2E;
       font-family: 'Barlow Condensed', sans-serif;
